@@ -13,9 +13,11 @@ class MainContent extends Component {
               		<Shelf />
             	</div>
             	<div className="open-search">
-              		<button onClick={() => console.log('clicked!')}>
-              			<Link to="/search">Add a Book</Link>
-              		</button>
+              			<Link to="/search">
+              				<button onClick={() => console.log('clicked!')}>
+              					Add a Book
+              				</button>
+              			</Link>
             	</div>
           	</div>
 			)
