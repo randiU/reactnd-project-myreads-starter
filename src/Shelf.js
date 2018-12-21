@@ -4,10 +4,18 @@ import Book from './Book'
 
 class Shelf extends Component {
 	render() {
+
+    const shelfCategories = [ 
+    {category: 'currentlyReading' , name: 'Currently Reading' },
+    {category: 'wantToRead', name: 'Want To Read' },
+    {category: 'read', name: 'Read'}
+    ]
+
 		return (
 			<div>
-				<div className="bookshelf">
-                <h2 className="bookshelf-title">Currently Reading</h2>
+        {shelfCategories.map(type => (
+            <div className="bookshelf">
+                <h2 className="bookshelf-title">{type.name}</h2>
                 <div>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
@@ -15,7 +23,10 @@ class Shelf extends Component {
                     </ol>
                   </div>
                 </div>
-        </div>
+            </div>
+          ))
+      }
+				
       </div>
 			)
 	}

@@ -14,7 +14,7 @@ class MainContent extends Component {
             	</div>
             	<div className="open-search">
               			<Link to="/search">
-              				<button onClick={() => console.log('clicked!')}>
+              				<button>
               					Add a Book
               				</button>
               			</Link>
