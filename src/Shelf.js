@@ -14,7 +14,7 @@ class Shelf extends Component {
 		return (
 			<div>
         {shelfCategories.map(type => (
-            <div className="bookshelf">
+            <div className="bookshelf" key={type.category}>
                 <h2 className="bookshelf-title">{type.name}</h2>
                 <div>
                   <div className="bookshelf-books">
