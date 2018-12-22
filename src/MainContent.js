@@ -10,7 +10,10 @@ class MainContent extends Component {
               		<h1>MyReads</h1>
             	</div>
             	<div className="list-books-content">
-              		<Shelf bookList={this.props.books}/>
+              		<Shelf 
+                  bookList={this.props.books}
+                  moveShelf={this.props.moveShelf}
+                  />
             	</div>
             	<div className="open-search">
               			<Link to="/search">
