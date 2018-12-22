@@ -24,7 +24,7 @@ class Shelf extends Component {
                         bookList.filter(book => book.shelf === 
                           type.category).map(book => (
                             <li key={book.id}>
-                              <Book />
+                              <Book book={book}/>
                             </li>
                           ))
                       }
