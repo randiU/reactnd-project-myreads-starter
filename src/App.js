@@ -18,19 +18,31 @@ class BooksApp extends React.Component {
       })
     }
 
-  moveShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf);
-    BooksAPI.getAll().then((books) => {
-        this.setState( {books:books} )
-      })
-    
-  }
+//https://github.com/sarah-maris/reactnd-project-myreads/blob/master/src/components/App.js
+  moveShelf = (changedBook, shelf) => {
+    BooksAPI.update(changedBook, shelf).then(response => {
+      // set shelf for new or updated book
+      console.log(response);
+      changedBook.shelf = shelf;
+      // update state with changed book
+      this.setState(prevState => ({
+        books: prevState.books
+          // remove updated book from array
+          .filter(book => book.id !== changedBook.id)
+          // add updated book to array
+          .concat(changedBook)
+      }));
+    });
+
+  };
 
   render() {
     return (
       <div className="app">
           <Route path="/search" render={() => (
-            <Search />) 
+            <Search 
+              moveShelf={this.moveShelf}
+            />) 
             }/>
       
           <Route exact path="/" render={() => (
