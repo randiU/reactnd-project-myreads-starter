@@ -11,7 +11,7 @@ The user can search for books and add them to shelves based on if they are curre
  ## How to run the App
 
  1. Download or clone the respository on your computer
-    - ` `
+    - `https://github.com/randiU/reactnd-project-myreads-starter.git`
  2. Move into the `reactnd-project-myreads-starter` file and run `npm install`
  3. After running `npm install` then run `npm start`. This will launch a local host for the website. 
 
