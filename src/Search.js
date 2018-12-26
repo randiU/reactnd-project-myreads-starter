@@ -58,14 +58,27 @@ class Search extends Component {
               <ol className="books-grid">
               {/*maps over each item in searchedBooks and creates an li element with the book 
               component in it */}
-              	{this.state.searchedBooks.map(searchedBook => (
-              		<li key={searchedBook.id}>
-              			<Book 
-              				book={searchedBook}
-              				moveShelf={this.props.moveShelf}
-              			/>
-              		</li>
-              		))
+              	{this.state.searchedBooks.map(searchedBook => {
+              		//makes the default on the search page as none
+              		let shelf= "none";
+              		//grabbing the books in the MaingContent.js state
+              		this.props.books.map(book => (
+              			book.id === searchedBook.id ?
+              			//assigns the shelf variable if a book is already
+              			//in the book state array to be the current shelf
+              			//not none
+              			shelf = book.shelf :
+              			''
+              			));
+              		return(
+		              	<li key={searchedBook.id}>
+		              		<Book 
+		              			book={searchedBook}
+		              			moveShelf={this.props.moveShelf}
+		              			currentShelf={shelf}		              		/>
+		              	</li>
+              			)
+              		})
               	}
               </ol>
             </div>

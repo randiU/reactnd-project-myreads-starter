@@ -22,7 +22,6 @@ class BooksApp extends React.Component {
   moveShelf = (changedBook, shelf) => {
     BooksAPI.update(changedBook, shelf).then(response => {
       // set shelf for new or updated book
-      console.log(response);
       changedBook.shelf = shelf;
       // update state with changed book
       this.setState(prevState => ({
@@ -42,6 +41,7 @@ class BooksApp extends React.Component {
           <Route path="/search" render={() => (
             <Search 
               moveShelf={this.moveShelf}
+              books={this.state.books}
             />) 
             }/>
       
